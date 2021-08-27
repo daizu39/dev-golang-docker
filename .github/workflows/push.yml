@@ -1,0 +1,32 @@
+name: Push Docker Image
+
+on:
+  push:
+    branches:
+    - master
+
+env:
+  DOCKER_HUB_BASE_NAME: daizu39/dev-golang
+
+jobs:
+  push:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Checkout
+      uses: actions/checkout@v2.1.1
+      with:
+        fetch-depth: 1
+
+    - name: Build base image
+      run: docker build . -t "${DOCKER_HUB_BASE_NAME}"
+
+    - name: Login to Registries
+      env:
+        DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+      run: |
+        echo "${DOCKER_HUB_TOKEN}" | docker login -u peaceiris --password-stdin
+
+    - name: Push to Docker Hub
+      run: docker push "${HUB_TAG}"
+
