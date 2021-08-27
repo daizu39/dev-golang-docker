@@ -24,6 +24,7 @@ jobs:
     - name: Login to Registries
       env:
         DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
+        DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
       run: |
         echo "${DOCKER_HUB_TOKEN}" | docker login -u peaceiris --password-stdin
 
