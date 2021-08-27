@@ -29,5 +29,5 @@ jobs:
         echo "${DOCKER_HUB_TOKEN}" | docker login -u "${DOCKER_HUB_USER}" --password-stdin
 
     - name: Push to Docker Hub
-      run: docker push "${HUB_TAG}"
+      run: docker push "${DOCKER_HUB_BASE_NAME}"
 
