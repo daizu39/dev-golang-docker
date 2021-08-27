@@ -26,7 +26,7 @@ jobs:
         DOCKER_HUB_TOKEN: ${{ secrets.DOCKER_HUB_TOKEN }}
         DOCKER_HUB_USER: ${{ secrets.DOCKER_HUB_USER }}
       run: |
-        echo "${DOCKER_HUB_TOKEN}" | docker login -u peaceiris --password-stdin
+        echo "${DOCKER_HUB_TOKEN}" | docker login -u "${DOCKER_HUB_USER}" --password-stdin
 
     - name: Push to Docker Hub
       run: docker push "${HUB_TAG}"
