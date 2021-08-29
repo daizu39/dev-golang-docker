@@ -1,4 +1,4 @@
 .env
 # for VIM
-.swp
-.un~
+*.swp
+*.un~

@@ -6,6 +6,8 @@ on:
     - master
     paths-ignore:
     - '**.md'
+    - 'docker-compose.yml'
+    - '.gitignore'
 
 env:
   DOCKER_HUB_BASE_NAME: daizu39/dev-golang
