@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  dev-golang:
+    container_name: dev-golang
+    image: daizu39/dev-golang:latest
+    build:
+      # https://qiita.com/sam8helloworld/items/e7fffa9afc82aea68a7a
+      context: .
+    tty: true
+    volumes:
+    - type: bind
+      source: "${WORKDIR}"
+      target: "/root/workspace"
+
